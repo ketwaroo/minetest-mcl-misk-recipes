@@ -95,7 +95,6 @@ minetest.register_on_mods_loaded(function()
                 -- why no regular regular expressions lua?
                     string.find(craftitem, 'mcl_core')
                     or string.find(craftitem, 'mcl_dyes?')
-                    or string.find(craftitem, 'mcl_farming')
                 )
                 and not string.find(craftitem, "enchanted")
             then
