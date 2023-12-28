@@ -102,7 +102,7 @@ minetest.register_on_mods_loaded(function()
                 table.insert(jukeboxRadomizer, craftitem)
             end
         end
-        print(dump(jukeboxRadomizer))
+        -- print(dump(jukeboxRadomizer))
         local i = 1
         for key, _ in pairs(mcl_jukebox.registered_records) do
             local randCraftItem = jukeboxRadomizer[i] or ""
