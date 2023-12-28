@@ -1,0 +1,11 @@
+{
+    "type": "MOD",
+    "title": "Unsolicited Crafting Recipes for Mineclonia",
+    "short_description": "Recipes for saddle, horse armors, and other uncraftables for mineclonia. Companion mod for k_recyclebin.",
+    "dev_state": "ACTIVELY_DEVELOPED",
+    "tags": ["crafting"],
+    "license": "GPL-3.0-or-later",
+    "media_license": "GPL-3.0-or-later",
+    "issue_tracker": "https://github.com/ketwaroo/minetest-mcl-misk-recipes/issues",
+    "repo": "https://github.com/ketwaroo/minetest-mcl-misk-recipes"
+}

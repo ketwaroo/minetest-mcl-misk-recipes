@@ -1,0 +1,11 @@
+# Horse armors, such as saddle and various iron/gold/diamond variants.
+mcl_misk_recipes.enable_horse_stuff (Horse Armor Recipes) bool true
+
+# Enable recycle of music records found in the wild.
+# Marginally better than using them as fuel.
+# Caution: recipes are somewhat random.
+mcl_misk_recipes.enable_jukebox_records (Vinyl Records Recipes) bool true
+
+# Some rare drop wearable head recipes, such as your zombies, skeletons, steves, etc.
+# Default is disabled. Probably better to leave it that way.
+mcl_misk_recipes.enable_head (Enable Head Recipes) bool false
