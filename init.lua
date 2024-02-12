@@ -93,15 +93,19 @@ minetest.register_on_mods_loaded(function()
             -- gives us plenty to work with though. but could still run out.
                 (
                 -- why no regular regular expressions lua?
-                    string.find(craftitem, 'mcl_core')
-                    or string.find(craftitem, 'mcl_dyes?')
+                    string.match(craftitem, 'mcl_core')
+                    or string.match(craftitem, 'mcl_dyes?')
+                    or string.match(craftitem, 'bone_meal')
+                    or string.match(craftitem, 'mcl_nether')
+                    or string.match(craftitem, 'mcl_ocean')
+                    or string.match(craftitem, 'mcl_mobitems')
                 )
-                and not string.find(craftitem, "enchanted")
+                and nil == string.match(craftitem, "enchanted")
             then
                 table.insert(jukeboxRadomizer, craftitem)
             end
         end
-        -- print(dump(jukeboxRadomizer))
+        --print(dump(jukeboxRadomizer))
         local i = 1
         for key, _ in pairs(mcl_jukebox.registered_records) do
             local randCraftItem = jukeboxRadomizer[i] or ""
@@ -114,6 +118,29 @@ minetest.register_on_mods_loaded(function()
                     { "mesecons:redstone",  "mcl_core:coal_lump", randCraftItem },
                 }
             })
+        end
+    end
+
+    -- few extra dyes.
+    -- there's probably some lore reason why those don't produce dyes.
+    if
+        minetest.get_modpath("mcl_dyes")
+    then
+        if minetest.get_modpath("mcl_cherry_blossom") then
+            minetest.register_craft({
+                output = "mcl_dyes:pink",
+                recipe = { { "mcl_cherry_blossom:pink_petals" } },
+            })
+            -- could also do leaves -> dye but other mods may use leaves for something
+        end
+
+        if minetest.get_modpath("mcl_flowers") then
+            -- @todo there was a blue flower that annoyingly didn't produce blue dye
+            -- will add if found again.
+            -- minetest.register_craft({
+            --     output = "mcl_dyes:blue",
+            --     recipe = {{"mcl_flowers:lapis"}},
+            -- })
         end
     end
 end)

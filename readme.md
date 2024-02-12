@@ -26,6 +26,7 @@ These are best quess recipes. I've taken some liberties here.
  * Diamond Horse Armor `mcl_mobitems:diamond_horse_armor`
  * Various records `mcl_jukebox:record_*` (see notes below)
  * A few rare heads (disabled by default)
+ * Cherry blossom pink petals -> pink dye.
 
 Check settings for this mod to enable/disable a few things.
 
