@@ -17,7 +17,7 @@ It is a limited use mod but it adds the options to get some useful materials out
 
 ### Recipes included
 
-These are best quess recipes. I've taken some liberties here.
+These are best guess recipes. I've taken some liberties here.
 
  * Saddle `mcl_mobitems:saddle`
  * ~~leather horse armor~~ doesn't exist in mineclonia right now. It should though. Will investigate later if bored.
