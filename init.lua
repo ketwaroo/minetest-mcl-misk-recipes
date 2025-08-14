@@ -47,6 +47,17 @@ minetest.register_on_mods_loaded(function()
                     { "mcl_core:diamond", "mcl_core:diamond",    "mcl_core:diamond" },
                 }
             })
+
+            if minetest.get_modpath("mcl_emerald_stuff") then
+                minetest.register_craft({
+                    output = "mcl_emerald_stuff:emerald_horse_armor",
+                    recipe = {
+                        { "mcl_core:emerald", "mcl_core:emerald",    "mcl_core:emerald" },
+                        { "mcl_core:emerald", "mcl_mobitems:saddle", "mcl_core:emerald" },
+                        { "mcl_core:emerald", "mcl_core:emerald",    "mcl_core:emerald" },
+                    }
+                })
+            end
         end
     end
 
