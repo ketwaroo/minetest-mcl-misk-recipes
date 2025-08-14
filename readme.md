@@ -23,6 +23,7 @@ These are best guess recipes. I've taken some liberties here.
  * ~~leather horse armor~~ doesn't exist in mineclonia right now. It should though. Will investigate later if bored.
  * Iron Horse Armor `mcl_mobitems:iron_horse_armor`
  * Golden Horse Armor `mcl_mobitems:gold_horse_armor`
+ * Emerald Horse Armor `mcl_emerald_stuff:emerald_horse_armor` (See [rudzik8/mcl_emerald_stuff](https://content.luanti.org/packages/rudzik8/mcl_emerald_stuff/))
  * Diamond Horse Armor `mcl_mobitems:diamond_horse_armor`
  * Various records `mcl_jukebox:record_*` (see notes below)
  * A few rare heads (disabled by default)
@@ -41,3 +42,4 @@ Mineclone 2/5 not supported. I don't have those installed locally, at least for 
 Some items like vinyl records never had any business being craftable. To be able to differentiate between each record, some random craft item is used in each recipe. Because I'm lazy and there's nothing you can do to stop me, the randomness is programmatic and determined at load time. So each time you create a server, the recipe for each record can be different from last time.
 
 Currently limited to music records but there may be other non craftables that will use the same strategy.
+
