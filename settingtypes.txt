@@ -1,6 +1,9 @@
 # Horse armors, such as saddle and various iron/gold/diamond variants.
 mcl_misk_recipes.enable_horse_stuff (Horse Armor Recipes) bool true
 
+# Horse armors from mods. Exerimental!
+mcl_misk_recipes.enable_horse_stuff_from_mods (Horse Armor Recipes for mods) bool false
+
 # Enable recycle of music records found in the wild.
 # Marginally better than using them as fuel.
 # Caution: recipes are somewhat random.

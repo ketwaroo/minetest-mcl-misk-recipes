@@ -1,6 +1,48 @@
 -- Unsolicited Crafting recipes.
 -- 2023 (c) Ketwaroo
 
+local craftitem_for_mod = {}
+
+local function get_craftitem_for_horsearmor(mod,item)
+    -- Find the very first item from this mod with a repair material
+    for name, def2 in pairs(core.registered_items) do
+        local mod2 = name:split(":")[1]
+        local item2 = name:split(":")[2]
+        if mod2 == mod and def2._repair_material then
+            return def2._repair_material
+        end
+    end
+    return nil
+end
+
+local function add_horse_armors_from_mods()
+    for name, def in pairs(core.registered_items) do
+        local mod = name:split(":")[1]
+        local item = name:split(":")[2]
+        -- exclude built-in MCL items
+        if mod ~= "mcl_mobitems" and item and item:find("horse_armor") then
+            local craftitem
+            if craftitem_for_mod[mod] == nil then
+                local response = get_craftitem_for_horsearmor(mod,item)
+                craftitem_for_mod[mod] = response
+            end
+            -- check again, and if defined, then add a recipe
+            local i = craftitem_for_mod[mod]
+            if i then
+                core.log("verbose","Setting recipe for " .. name .. " with craftitem " .. i)
+                minetest.register_craft({
+                    output = name,
+                    recipe = {
+                        { i, i, i },
+                        { i, "mcl_mobitems:saddle", i },
+                        { i, i, i },
+                    }
+                })
+            end
+        end
+    end
+end
+
 minetest.register_on_mods_loaded(function()
     if minetest.get_modpath("mcl_mobitems") then
         if minetest.settings:get_bool("mcl_misk_recipes.enable_horse_stuff", true) then
@@ -48,15 +90,8 @@ minetest.register_on_mods_loaded(function()
                 }
             })
 
-            if minetest.get_modpath("mcl_emerald_stuff") then
-                minetest.register_craft({
-                    output = "mcl_emerald_stuff:emerald_horse_armor",
-                    recipe = {
-                        { "mcl_core:emerald", "mcl_core:emerald",    "mcl_core:emerald" },
-                        { "mcl_core:emerald", "mcl_mobitems:saddle", "mcl_core:emerald" },
-                        { "mcl_core:emerald", "mcl_core:emerald",    "mcl_core:emerald" },
-                    }
-                })
+            if minetest.settings:get_bool("mcl_misk_recipes.enable_horse_stuff_from_mods", false) then
+                add_horse_armors_from_mods()
             end
         end
     end
